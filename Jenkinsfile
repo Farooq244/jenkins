@@ -1,5 +1,7 @@
 pipeline{
-    agent any
+    agent {
+        label 'slave1'
+    }
 
     stages{
         stage('hello'){
@@ -9,8 +11,8 @@ pipeline{
        }
          stage('gitCheckout'){
           steps{
-            git branch: 'main', credentialsId: 'jenkins', url: 'git@github.com:Farooq244/jenkins.git'
-                    }
+            git branch: 'main', url: 'https://github.com/Farooq244/jenkins.git'
+          }
           }
     }
 }
